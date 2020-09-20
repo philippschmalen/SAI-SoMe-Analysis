@@ -1,6 +1,3 @@
-import pandas as pd
-import os
-
 def list_remove_duplicates(l):
     """Removes duplicates from list elements whilst preserving element order
 
@@ -27,9 +24,9 @@ def list_string_manual_correction(x):
     """
     
     print("Correct strings manually. \n\
-            \t1. Go forward with ENTER \n\
-            \t2. Go backwards by typing the backwardsstep number.\n\
-            \tExit by typing 'exit'")
+    \t1. Go forward with ENTER \n\
+    \t2. Go backwards by typing the backwardsstep number.\n\
+    \tGo to next topic current topic by typing 'exit'")
     
     i = 0
     while i < len(x):
@@ -54,10 +51,15 @@ def list_string_manual_correction(x):
     return x
 
 
+
+import pandas as pd
+import os
+
+
 # get all files in [folder] starting with [string]
-## TODO: INSERT PATH TO FILLED QUESTIONNAIRES
+## TODO: SPECIFY PATH OF FILLED QUESTIONNAIRES
 path = '' 
-string_file_names = 'IASA Graduate Profile Questionnaire' # following naming convention
+string_file_names = 'IASA Graduate Profile Questionnaire'
 files = [i for i in os.listdir(path) if os.path.isfile(os.path.join(path,i)) and string_file_names in i]
 
 print("Loaded files from {}\n{}".format(path,"="*40))
@@ -90,6 +92,10 @@ df_skills_knowledge['corrected'] = df_skills_knowledge.raw.apply(list_string_man
 
 # remove duplicates (while maintaining order)
 df_skills_knowledge['no_duplicates'] = df_skills_knowledge.corrected.apply(list_remove_duplicates)
+
+# convert list objects to strings 
+for col in df_skills_knowledge.columns:
+    df_skills_knowledge[col] = df_skills_knowledge.loc[:,col].apply(lambda x: ', '.join(x))
 
 # export as xlsx
 df_skills_knowledge.to_excel(os.path.join(path,'cleaned_profiles.xlsx') , index = False)
