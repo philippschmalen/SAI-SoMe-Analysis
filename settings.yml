@@ -1,0 +1,9 @@
+data:
+  raw_dir: '../../data/raw/'
+  processed_dir: '../../data/processed/'
+  raw_filenames: {
+        'anchor': 'RWYToSustainability', 
+        'linkedin':'sustainableaviationinitiative_visitors', 
+        'twitter': 'daily_tweet_activity_metrics'
+        }
+  processed_filename: social_media_long.csv
