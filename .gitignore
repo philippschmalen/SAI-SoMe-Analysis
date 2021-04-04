@@ -1,6 +1,9 @@
 # archives
 archive/
+
+# sensitive information
 data/raw
+skill database/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
