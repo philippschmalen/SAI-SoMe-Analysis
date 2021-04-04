@@ -1,3 +1,6 @@
+import pandas as pd
+import os
+
 def list_remove_duplicates(l):
     """Removes duplicates from list elements whilst preserving element order
 
@@ -52,13 +55,15 @@ def list_string_manual_correction(x):
 
 
 
-import pandas as pd
-import os
 
+# from sys import version
+# from os import getcwd
+# print(version)
+# print(getcwd())
 
 # get all files in [folder] starting with [string]
 ## TODO: SPECIFY PATH OF FILLED QUESTIONNAIRES
-path = '' 
+path = './../Steckbriefe/Ausgefüllt' 
 string_file_names = 'IASA Graduate Profile Questionnaire'
 files = [i for i in os.listdir(path) if os.path.isfile(os.path.join(path,i)) and string_file_names in i]
 

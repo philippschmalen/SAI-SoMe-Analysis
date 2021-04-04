@@ -3,3 +3,4 @@ pyyaml
 plotly
 streamlit
 numpy
+altair
