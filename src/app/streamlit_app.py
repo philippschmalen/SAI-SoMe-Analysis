@@ -9,7 +9,7 @@ st.title("Social media analysis @SAI")
 
 
 # -- load config
-config = load_config(filepath = "./src/settings.yml")
+config = load_config(filepath = "./settings.yml")
 DATA_DIR           = config['data']['processed_dir']
 PROCESSED_FILENAME = config['data']['processed_filename']
 
