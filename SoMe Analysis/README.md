@@ -5,6 +5,23 @@
 > Have one dashboard to summarizes SAI's reach across platforms. 
 > KPI is **Total unique visitors per week**.
 
+## Structure
+
+```bash
+./ Project root
+├───data
+│   ├───interim
+│   ├───processed
+│   └───raw
+├───env
+├───notebooks
+├───references
+│   └───images      # used for readme
+└───src
+    ├───app         # contains streamlit app dashboard.py
+    │   └───util    # utility functions
+    └───data        # data processing script
+```
 
 ## Get started (developers)
 
@@ -38,6 +55,25 @@ The following assumes the python package manager Anaconda/Minconda. First,
 2.  ensure that data files exists for Anchor and LinkedIn in `./data/raw/`
 3.  You find the data processing script in `./src/data/process_data.py`. Change the data directories according to your OS and needs. 
 
+### Run Streamlit app
+[Streamlit's](https://docs.streamlit.io/en/stable/getting_started.html) official get started guide. 
+
+Follow the above steps to install environment or run
+
+```bash
+pip install streamlit pandas plotly
+```
+
+Go to `./src/app`, open an anaconda prompt `conda activate sai` and 
+
+```bash
+streamlit run dashboard.py
+```
+
+A browser should open and show 
+
+![](./references/images/streamlit_1.png)
+
 ## How to add new data
 
 To add new data points after a certain time, proceed as follows. __Important:__ Store the data in the directory, where  `./src/data/process_data.py` expects it to be. This is `./data/raw` by default. 
@@ -52,6 +88,15 @@ To add new data points after a certain time, proceed as follows. __Important:__ 
 ![](./references/images/linkedin_get_data_2.png)
 ![](./references/images/linkedin_get_data_3.png)
 ![](./references/images/linkedin_get_data_4.png)
+
+### Twitter 
+
+You find the analytics data as follows: 
+
+`More` > `analytics` > `Tweets`
+Select _last 28 days_ and _Export data __by day___ to the project data folder `./data/raw`.
+
+![](./references/images/twitter_get_data_1.png)
 
 ## Purpose of the jupyter `./notebooks`
 
