@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from app_utilities import load_config, load_data
+from utils.app_utilities import load_config, load_data
 from datetime import datetime, tzinfo, date
 
 
@@ -26,16 +26,16 @@ df['date'] = pd.to_datetime(df['date']).dt.tz_localize(None)
 
 # choose platform
 platform_options = df.platform.unique().tolist()
-platform_selected = st.multiselect("Select platform(s)", 
+platform_selected = st.sidebar.multiselect("Select platform(s)", 
 							options=platform_options, 
 							default=platform_options)
 # choose time window
-date_range = st.date_input("Date range (default: last 6 months)", 
+date_range = st.sidebar.date_input("Date range (default: last 6 months)", 
 	[df['date'].max() - pd.to_timedelta(180, unit='d'), 
 	df['date'].max()])
 # choose date detail level
 date_unit_options = {'D': "daily", 'W': "weekly", 'M': "monthly"}
-detail_level = st.selectbox("Detail level", 	options=list(date_unit_options.keys()), 
+detail_level = st.sidebar.selectbox("Detail level", 	options=list(date_unit_options.keys()), 
 										format_func=lambda x: date_unit_options[x], 
 										index=1)
 
