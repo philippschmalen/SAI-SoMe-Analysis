@@ -90,8 +90,8 @@ A browser should open and show
 
 A checklist for deployment on [Streamlit Sharing](https://streamlit.io/sharing): 
 
-1. Ensure a _public_ repository 
-2. A repository with submodules or subdirectories will not work. 
+1. Ensure a _public_ repository  
+2. A repository with submodules or subdirectories will not work
 3. Put `requirements.txt` into the repository root folder `./` with a minimum amount of packages, for example 
     ```bash
     pandas==1.2.3
@@ -99,12 +99,13 @@ A checklist for deployment on [Streamlit Sharing](https://streamlit.io/sharing):
     streamlit==0.79.0
     plotly==4.14.1
     ```
-4. Any files called from within `./src/app/streamlit_app.py` have to be called relative to the root folder of the repo, `./`. Relative paths from `streamlit_app.py` will not work, so always start at the repository root `./`, for example: 
+Common mistakes are incorrect filenames, such as `requirement.txt` or `requirements.txt.txt` instead of `requirements.txt`. 
+4. Any files called from within `./src/app/streamlit_app.py` have to be called relative to the root folder of the repo, `./`. Relative paths from like navigating one level up like `../` within `streamlit_app.py` will not work.  Reference files from the repository root `./`, for example: 
     ```python
-    # calling settings.yml with relative path does not work
+    # DOES'T WORK: call settings.yml with relative path one level up
     with open('../settings.yml') as file: 
         [...]
-    # call settings.yml from repo root dir
+    # WORK: call settings.yml from repo root dir
     with open('./src/settings.yml') as file: 
     ```
 
