@@ -103,5 +103,5 @@ fig_tree = px.treemap(df_treemap, path=['platform'], values='share')
 st.plotly_chart(fig_tree)
 
 
-'## Inspect data for interaction metric'
-'### Twitter raw data', pd.read_csv("./data/raw/daily_tweet_activity_metrics_InitiativeSuAv_20210325_20210422_en.csv")
+# '## Inspect data for interaction metric'
+# '### Twitter raw data', pd.read_csv("./data/raw/daily_tweet_activity_metrics_InitiativeSuAv_20210325_20210422_en.csv")
