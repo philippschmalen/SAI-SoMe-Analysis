@@ -15,6 +15,8 @@ PROCESSED_FILENAME = config['data']['processed_filename']
 
 # -- load data
 df = load_data(data_dir=DATA_DIR, filename=PROCESSED_FILENAME)
+'', df
+
 # -- process data
 # date column: datetime format, remove timezone
 df['date'] = pd.to_datetime(df['date']).dt.tz_localize(None) 

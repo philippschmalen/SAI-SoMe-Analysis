@@ -11,5 +11,5 @@ def load_config(filepath):
 def load_data(data_dir, filename):
 	"""Read csv-only file from data_dir/filename"""
 	filepath = os.path.join(data_dir, filename)
-	df = pd.read_csv(filepath)
+	df = pd.read_csv(filepath, header=0)
 	return df
