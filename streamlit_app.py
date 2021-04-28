@@ -7,8 +7,6 @@ from datetime import datetime, tzinfo, date
 
 st.title("Social media analysis @SAI")
 
-"## Crap. I messed something up."
-
 
 # -- load config
 config = load_config(filepath = "./settings.yml")
@@ -17,7 +15,9 @@ PROCESSED_FILENAME = config['data']['processed_filename']
 
 # -- load data
 df = load_data(data_dir=DATA_DIR, filename=PROCESSED_FILENAME)
-'', df
+
+# "## Crap. I messed something up."
+# '', df
 
 # -- process data
 # date column: datetime format, remove timezone
