@@ -15,6 +15,10 @@ We would love to hear from you. Leave us a message at https://www.linkedin.com/c
 > Have one dashboard to summarizes SAI's reach across platforms. 
 > KPI is **Total unique visitors per week**.
 
+## Streamlit dashboard
+
+The data analysis is live on https://share.streamlit.io/philippschmalen/sai-data-science . 
+
 ## Structure
 
 ```bash
